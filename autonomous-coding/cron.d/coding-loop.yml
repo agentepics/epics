@@ -1,0 +1,21 @@
+name: coding-loop
+schedule: "0 */2 * * *"
+timezone: UTC
+enabled: true
+run:
+  type: prompt
+  prompt: |
+    Resume the autonomous coding loop.
+    Read state.json for the current plan reference and progress.
+    Open the referenced plan from plans/ and check the Now section for the next action.
+    If blocked is true, attempt to resolve the blocker before proceeding.
+    Execute the coding loop phases in order — validate plan against codebase, implement, validate implementation, run lint/typecheck/build/tests.
+    After each completed iteration, write a log entry, update state.json progress, and advance the plan.
+    Stop after one complete iteration.
+context:
+  - state.json
+  - ROADMAP.md
+output:
+  log: true
+  update_state: true
+  notify: false

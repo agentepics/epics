@@ -1,0 +1,13 @@
+autonomy:
+  max_spend_per_run: 0.25
+  allowed_tools:
+    - bash
+    - file_read
+    - file_write
+  forbidden_actions:
+    - "modify other Epics' state directly"
+    - "change the cadence without user approval"
+
+escalation:
+  on_error: log_and_continue
+  on_ambiguity: ask_human

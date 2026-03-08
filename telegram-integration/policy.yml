@@ -1,0 +1,22 @@
+autonomy:
+  max_spend_per_run: 0.10
+  allowed_tools:
+    - bash
+    - file_read
+    - file_write
+    - web_fetch
+  forbidden_actions:
+    - send messages to chat IDs not listed in state.json chat_targets
+    - store the bot token in plain text in state.json or log files
+    - send more than 10 messages per hour without user approval
+
+hooks:
+  allowed_types:
+    - prompt
+    - script
+  allowed_domains:
+    - api.telegram.org
+
+escalation:
+  on_error: log_and_continue
+  on_ambiguity: ask_human

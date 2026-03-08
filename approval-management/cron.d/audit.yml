@@ -1,0 +1,20 @@
+name: audit
+schedule: "0 8 * * *"
+timezone: UTC
+enabled: true
+run:
+  type: prompt
+  prompt: |
+    Run a daily approval audit.
+    Read state.json for the current approval policy.
+    Inventory all active Epics and their current state.
+    Check each Epic against the approval policy.
+    Flag any Epic that has drifted outside its approval classification.
+    Update state.json with the audit results.
+    Log the audit with a summary of findings and any policy drift detected.
+context:
+  - state.json
+output:
+  log: true
+  update_state: true
+  notify: false

@@ -1,0 +1,19 @@
+name: connectivity-check
+schedule: "0 */6 * * *"
+timezone: UTC
+enabled: true
+run:
+  type: prompt
+  prompt: |
+    Verify Telegram bot connectivity. Read state.json for bot status and
+    chat targets. If bot_configured is true, send a silent connectivity
+    test (getMe API call). If the test fails, set bot_configured to false
+    in state.json, log the failure, and trigger the became-blocked hook.
+    If the test passes and bot_configured was false, restore it to true
+    and log the recovery.
+context:
+  - state.json
+output:
+  log: true
+  update_state: true
+  notify: false

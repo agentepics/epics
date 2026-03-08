@@ -1,0 +1,22 @@
+name: daily-planning
+schedule: "0 7 * * *"
+timezone: UTC
+enabled: true
+run:
+  type: prompt
+  prompt: |
+    Run the daily planning cycle. Read state.json for the objective inventory
+    and last review date. Review current objectives against ROADMAP.md.
+    Inventory all active Epics in the workspace and check their state.json
+    status fields. Flag any stale Epics (no log entries in 48+ hours) or
+    blocked Epics. Repair misaligned Epics by updating their plans. Identify
+    objective gaps where no Epic provides coverage. For each gap, draft a
+    creation prompt for a new Epic. Update state.json with the portfolio
+    snapshot and review timestamp. Write a log entry summarizing decisions.
+context:
+  - state.json
+  - ROADMAP.md
+output:
+  log: true
+  update_state: true
+  notify: false

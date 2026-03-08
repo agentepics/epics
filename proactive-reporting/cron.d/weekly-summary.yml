@@ -1,0 +1,18 @@
+name: weekly-summary
+schedule: "0 10 * * 1"
+timezone: UTC
+enabled: true
+run:
+  type: prompt
+  prompt: |
+    Produce the weekly summary report. Read the last 7 days of log entries
+    across all active Epics with reporting duties. Summarize progress against
+    ROADMAP.md milestones. Highlight any recurring blockers or patterns.
+    List decisions made and decisions still pending. Deliver to configured
+    destinations. Log the delivery.
+context:
+  - state.json
+output:
+  log: true
+  update_state: true
+  notify: true

@@ -1,0 +1,15 @@
+autonomy:
+  max_spend_per_run: 0.50
+  allowed_tools:
+    - bash
+    - file_read
+    - file_write
+    - web_search
+  forbidden_actions:
+    - delete Epics without logging the objective gap
+    - create more than 3 new Epics in a single planning cycle
+    - modify other Epics' SKILL.md or EPIC.md files
+
+escalation:
+  on_error: log_and_continue
+  on_ambiguity: ask_human

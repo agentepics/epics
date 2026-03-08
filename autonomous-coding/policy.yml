@@ -1,0 +1,17 @@
+autonomy:
+  max_spend_per_run: 1.00
+  allowed_tools:
+    - bash
+    - file_read
+    - file_write
+    - web_search
+    - grep
+  forbidden_actions:
+    - "push to production branches without verification"
+    - "delete files outside the project scope"
+    - "skip test execution when tests exist"
+    - "modify policy.yml or SKILL.md"
+
+escalation:
+  on_error: log_and_continue
+  on_ambiguity: ask_human

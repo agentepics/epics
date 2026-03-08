@@ -1,0 +1,19 @@
+name: heartbeat
+schedule: "*/30 * * * *"
+timezone: UTC
+enabled: true
+run:
+  type: prompt
+  prompt: |
+    Wake up, read state.json for cadence and last run time.
+    Check all active Epics for pending work.
+    Hand control to the agent's other active Epics.
+    When done, update state.json with this run's timestamp and compute the next scheduled wake.
+    Write a log entry to log/ recording what happened during this heartbeat — even if nothing was actionable.
+context:
+  - state.json
+  - plans/001-initial.md
+output:
+  log: true
+  update_state: true
+  notify: false
