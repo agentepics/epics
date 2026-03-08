@@ -1,0 +1,10 @@
+{
+  "state_version": 1,
+  "status": "active",
+  "name": "Approval Management",
+  "approval_policy": {},
+  "exceptions": [],
+  "pending_approvals": [],
+  "blocked_work": [],
+  "current_plan": "001-initial.md"
+}

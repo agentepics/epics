@@ -1,0 +1,13 @@
+{
+  "state_version": 1,
+  "status": "active",
+  "name": "Telegram Integration",
+  "bot_configured": false,
+  "bot_token_set": false,
+  "chat_targets": [],
+  "delivery_preferences": {
+    "questions": "ask-first",
+    "reports": "on-schedule"
+  },
+  "current_plan": "001-initial.md"
+}

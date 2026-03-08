@@ -1,0 +1,9 @@
+{
+  "state_version": 1,
+  "status": "active",
+  "name": "Agent Heartbeat",
+  "cadence": "30m",
+  "last_run": null,
+  "next_run": null,
+  "current_plan": "001-initial.md"
+}

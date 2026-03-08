@@ -1,0 +1,11 @@
+{
+  "state_version": 1,
+  "status": "active",
+  "name": "Proactive Reporting",
+  "cadence": null,
+  "scope": [],
+  "destinations": [],
+  "per_epic_duties": {},
+  "overdue": [],
+  "current_plan": "001-initial.md"
+}

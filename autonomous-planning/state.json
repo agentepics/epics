@@ -1,0 +1,9 @@
+{
+  "state_version": 1,
+  "status": "active",
+  "name": "Autonomous Planning",
+  "objective_inventory": [],
+  "epic_portfolio": [],
+  "last_review": null,
+  "current_plan": "001-initial.md"
+}
