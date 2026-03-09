@@ -5,7 +5,7 @@ autonomy:
     - file_read
     - file_write
   forbidden_actions:
-    - send reports to destinations not configured in state.json
+    - send reports to destinations not configured in runtime/state.json
     - omit known blockers from reports
     - modify other Epics' state
 

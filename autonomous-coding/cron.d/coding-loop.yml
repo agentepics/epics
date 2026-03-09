@@ -6,15 +6,15 @@ run:
   type: prompt
   prompt: |
     Resume the autonomous coding loop.
-    Read state.json for the current plan reference and progress.
-    Open the referenced plan from plans/ and check the Now section for the next action.
+    Read runtime/state.json for the current plan reference and progress.
+    Open the referenced plan from runtime/plans/ and check the Now section for the next action.
     If blocked is true, attempt to resolve the blocker before proceeding.
     Execute the coding loop phases in order — validate plan against codebase, implement, validate implementation, run lint/typecheck/build/tests.
-    After each completed iteration, write a log entry, update state.json progress, and advance the plan.
+    After each completed iteration, write a log entry, update runtime/state.json progress, and advance the plan.
     Stop after one complete iteration.
 context:
-  - state.json
-  - ROADMAP.md
+  - runtime/state.json
+  - runtime/ROADMAP.md
 output:
   log: true
   update_state: true

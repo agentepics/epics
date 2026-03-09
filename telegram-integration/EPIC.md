@@ -1,5 +1,5 @@
 ---
-spec_version: 0.5.0
+spec_version: 0.5.1
 id: telegram-integration
 tags: [telegram, messaging, questions, reports]
 timezone: UTC
@@ -19,14 +19,14 @@ Make autonomous work reachable by giving the agent a reliable Telegram path for 
 
 ## Success criteria
 
-- Bot connection is verified and recorded in `state.json`.
+- Bot connection is verified and recorded in `runtime/state.json`.
 - Messages reach the correct chat target without silent failures.
 - Delivery failures are logged and escalated.
 
 ## State to preserve
 
-- `state.json` — bot status, active chat targets, delivery preferences, question-vs-report policy
-- `log/` — message delivery outcomes and failures
+- `runtime/state.json` — bot status, active chat targets, delivery preferences, question-vs-report policy
+- `runtime/log/` — message delivery outcomes and failures
 
 ## Guardrails
 
@@ -35,4 +35,4 @@ Make autonomous work reachable by giving the agent a reliable Telegram path for 
 
 ## Resume
 
-Read `state.json` for bot connection status and chat targets. If the bot is configured, the capability is ready — no further setup needed. Check `log/` for recent delivery failures that may need retry.
+Read `runtime/state.json` for bot connection status and chat targets. If the bot is configured, the capability is ready — no further setup needed. Check `runtime/log/` for recent delivery failures that may need retry.

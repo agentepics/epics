@@ -3,7 +3,7 @@
 Updated: 2026-03-08
 
 ## Now
-- Initialize ROADMAP.md with project milestones
+- Initialize runtime/ROADMAP.md with project milestones
 - Validate current codebase state and identify first work item
 
 ## Next

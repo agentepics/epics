@@ -1,5 +1,5 @@
 ---
-spec_version: 0.5.0
+spec_version: 0.5.1
 id: approval-management
 tags: [approval, governance, policy, autonomy]
 timezone: UTC
@@ -26,9 +26,9 @@ Keep autonomous execution inside user-defined approval boundaries by turning app
 
 ## State to preserve
 
-- `state.json` — approval policy, exception list, pending approvals, blocked work
-- `log/` — approval decisions with timestamps
-- `plans/` — pending policy reviews and follow-ups
+- `runtime/state.json` — approval policy, exception list, pending approvals, blocked work
+- `runtime/log/` — approval decisions with timestamps
+- `runtime/plans/` — pending policy reviews and follow-ups
 
 ## Guardrails
 
@@ -37,4 +37,4 @@ Keep autonomous execution inside user-defined approval boundaries by turning app
 
 ## Resume
 
-Read `state.json` for the approval policy, pending approvals, and blocked work. Check `plans/` for pending policy reviews. Read the last 3–5 `log/` entries for recent approval decisions. Resume from the Audit phase to ensure all active Epics are still aligned with policy.
+Read `runtime/state.json` for the approval policy, pending approvals, and blocked work. Check `runtime/plans/` for pending policy reviews. Read the last 3–5 `runtime/log/` entries for recent approval decisions. Resume from the Audit phase to ensure all active Epics are still aligned with policy.

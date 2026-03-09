@@ -1,5 +1,5 @@
 ---
-spec_version: 0.5.0
+spec_version: 0.5.1
 id: proactive-reporting
 tags: [reporting, status, frequency, housekeeping]
 timezone: UTC
@@ -22,13 +22,13 @@ Make reporting a maintained operating function by keeping user expectations, cad
 
 - Reports are delivered at the user's requested frequency.
 - Every active Epic with a reporting duty is covered.
-- Overdue reports are flagged in `state.json` and logged.
+- Overdue reports are flagged in `runtime/state.json` and logged.
 
 ## State to preserve
 
-- `state.json` — reporting cadence, scope, destinations, per-Epic duties, overdue items
-- `plans/` — upcoming reporting actions and follow-ups
-- `log/` — one entry per delivered or missed report
+- `runtime/state.json` — reporting cadence, scope, destinations, per-Epic duties, overdue items
+- `runtime/plans/` — upcoming reporting actions and follow-ups
+- `runtime/log/` — one entry per delivered or missed report
 
 ## Guardrails
 
@@ -37,4 +37,4 @@ Make reporting a maintained operating function by keeping user expectations, cad
 
 ## Resume
 
-Read `state.json` for cadence, scope, and per-Epic reporting duties. Check whether any reports are overdue. Read the last 3–5 `log/` entries for recent delivery outcomes. Resume from the Audit or Deliver phase depending on what is due.
+Read `runtime/state.json` for cadence, scope, and per-Epic reporting duties. Check whether any reports are overdue. Read the last 3–5 `runtime/log/` entries for recent delivery outcomes. Resume from the Audit or Deliver phase depending on what is due.

@@ -1,5 +1,5 @@
 ---
-spec_version: 0.5.0
+spec_version: 0.5.1
 id: autonomous-coding
 tags: [coding, roadmap, plan, validation]
 timezone: UTC
@@ -23,21 +23,21 @@ Maintain a robust autonomous coding loop that executes useful software work with
 ## Success criteria
 
 - Every loop iteration ends with passing verification.
-- The current plan in `plans/` always reflects the true next actions.
-- `ROADMAP.md` milestones advance as work completes.
+- The current plan in `runtime/plans/` always reflects the true next actions.
+- `runtime/ROADMAP.md` milestones advance as work completes.
 
 ## State to preserve
 
-- `state.json` — current plan reference, milestone, progress, blocked flag
-- `plans/` — current and past tactical plans
-- `ROADMAP.md` — milestones and long-term goals
-- `log/` — one entry per completed loop iteration
+- `runtime/state.json` — current plan reference, milestone, progress, blocked flag
+- `runtime/plans/` — current and past tactical plans
+- `runtime/ROADMAP.md` — milestones and long-term goals
+- `runtime/log/` — one entry per completed loop iteration
 
 ## Guardrails
 
-- Do not leave `state.json` or the current plan stale after implementation.
+- Do not leave `runtime/state.json` or the current plan stale after implementation.
 - Do not skip verification steps when lint, typecheck, build, or tests are available.
 
 ## Resume
 
-Read `state.json` for the current plan reference and progress. Open the referenced plan from `plans/` and check `## Now` for the next action. Read the last 3–5 `log/` entries for recent context. Continue the loop from the current phase.
+Read `runtime/state.json` for the current plan reference and progress. Open the referenced plan from `runtime/plans/` and check `## Now` for the next action. Read the last 3–5 `runtime/log/` entries for recent context. Continue the loop from the current phase.

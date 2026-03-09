@@ -5,13 +5,13 @@ enabled: true
 run:
   type: prompt
   prompt: |
-    Produce the weekly summary report. Read the last 7 days of log entries
+    Produce the weekly summary report. Read the last 7 days of runtime/log entries
     across all active Epics with reporting duties. Summarize progress against
-    ROADMAP.md milestones. Highlight any recurring blockers or patterns.
+    runtime/ROADMAP.md milestones. Highlight any recurring blockers or patterns.
     List decisions made and decisions still pending. Deliver to configured
-    destinations. Log the delivery.
+    destinations. Log the delivery in runtime/log/.
 context:
-  - state.json
+  - runtime/state.json
 output:
   log: true
   update_state: true

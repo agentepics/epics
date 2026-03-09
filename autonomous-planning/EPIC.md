@@ -1,5 +1,5 @@
 ---
-spec_version: 0.5.0
+spec_version: 0.5.1
 id: autonomous-planning
 tags: [planning, inventory, housekeeping, objectives]
 timezone: UTC
@@ -27,9 +27,9 @@ Keep the Epic portfolio aligned with objectives through recurring autonomous pla
 
 ## State to preserve
 
-- `state.json` — objective inventory, Epic portfolio snapshot, last review timestamp
-- `plans/` — current planning actions and follow-ups
-- `log/` — one entry per planning cycle with decisions made
+- `runtime/state.json` — objective inventory, Epic portfolio snapshot, last review timestamp
+- `runtime/plans/` — current planning actions and follow-ups
+- `runtime/log/` — one entry per planning cycle with decisions made
 
 ## Guardrails
 
@@ -38,4 +38,4 @@ Keep the Epic portfolio aligned with objectives through recurring autonomous pla
 
 ## Resume
 
-Read `state.json` for the objective inventory and last review date. Check `plans/` for pending planning actions. Read the last 3–5 `log/` entries to see recent portfolio decisions. Run the next planning cycle from the Review phase.
+Read `runtime/state.json` for the objective inventory and last review date. Check `runtime/plans/` for pending planning actions. Read the last 3–5 `runtime/log/` entries to see recent portfolio decisions. Run the next planning cycle from the Review phase.

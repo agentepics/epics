@@ -5,16 +5,16 @@ enabled: true
 run:
   type: prompt
   prompt: |
-    Produce the daily status report. Read state.json for reporting cadence,
+    Produce the daily status report. Read runtime/state.json for reporting cadence,
     destinations, and per-Epic duties. For each active Epic with a reporting
-    duty, collect its current status from its state.json, recent log entries,
+    duty, collect its current status from its runtime/state.json, recent runtime/log entries,
     and current plan. Separate findings into three sections: Progress (what
     moved forward), Blockers (what is stuck and why), and Decisions (what
     needs user input). Format and deliver the report to configured
-    destinations. Update state.json with delivery status. Write a log entry
+    destinations. Update runtime/state.json with delivery status. Write a runtime/log entry
     confirming delivery or noting failures.
 context:
-  - state.json
+  - runtime/state.json
 output:
   log: true
   update_state: true

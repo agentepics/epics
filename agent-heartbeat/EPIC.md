@@ -1,5 +1,5 @@
 ---
-spec_version: 0.5.0
+spec_version: 0.5.1
 id: agent-heartbeat
 tags: [scheduler, heartbeat, autonomy, roadmap]
 timezone: UTC
@@ -13,19 +13,19 @@ Provide a durable wake-up cadence so the agent can act on its own schedule witho
 
 ## Phases
 
-1. **Configure** — set the cadence and record it in `state.json`.
+1. **Configure** — set the cadence and record it in `runtime/state.json`.
 2. **Run** — wake on schedule, hand control to the agent, record that a heartbeat occurred.
 
 ## Success criteria
 
 - Heartbeats fire at the configured cadence.
 - Every heartbeat is logged regardless of whether the agent had work to do.
-- `state.json` always reflects the last and next scheduled wake.
+- `runtime/state.json` always reflects the last and next scheduled wake.
 
 ## State to preserve
 
-- `state.json` — cadence, last run time, next run time
-- `log/` — one entry per heartbeat
+- `runtime/state.json` — cadence, last run time, next run time
+- `runtime/log/` — one entry per heartbeat
 
 ## Guardrails
 
@@ -34,4 +34,4 @@ Provide a durable wake-up cadence so the agent can act on its own schedule witho
 
 ## Resume
 
-Read `state.json` for the cadence and last run time. Compute whether a heartbeat is overdue. Read the last 3–5 `log/` entries to confirm recent wake history. Resume the cadence from the current interval.
+Read `runtime/state.json` for the cadence and last run time. Compute whether a heartbeat is overdue. Read the last 3–5 `runtime/log/` entries to confirm recent wake history. Resume the cadence from the current interval.
