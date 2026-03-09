@@ -2,7 +2,7 @@
 
 Public curated Epic source repositories authored by the [Agent Epics](https://agentepics.io) project.
 
-Each directory is a complete Epic following the [EPIC specification v0.5.2](https://agentepics.io/epic-specification), containing a dual-purpose `SKILL.md`, `EPIC.md`, and durable runtime state under `runtime/`.
+Each directory is a complete Epic following the [EPIC specification v0.5.2](https://agentepics.io/epic-specification), containing a dual-purpose `SKILL.md`, `EPIC.md`, and the fuller authored operational profile used by the curated samples.
 
 ## Epics
 
@@ -17,7 +17,7 @@ Each directory is a complete Epic following the [EPIC specification v0.5.2](http
 
 ## Structure
 
-Each epic follows the standard layout:
+Each curated epic follows this common operational profile:
 
 ```
 epic-name/
@@ -28,8 +28,14 @@ epic-name/
 │   ├── plans/
 │   │   └── 001-initial.md # Initial tactical plan
 │   └── log/              # Append-only activity history
+├── hooks/                # Lifecycle hook handlers
+├── cron.d/               # Scheduled tasks
 └── policy.yml
 ```
+
+The minimum valid Epic is smaller than this: the core spec only requires
+`SKILL.md` and `EPIC.md`. The extra runtime files shown here are the common
+curated authored profile, not a mandatory minimum.
 
 ## License
 
