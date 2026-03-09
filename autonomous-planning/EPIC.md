@@ -1,5 +1,5 @@
 ---
-spec_version: 0.5.1
+spec_version: 0.5.2
 id: autonomous-planning
 tags: [planning, inventory, housekeeping, objectives]
 timezone: UTC

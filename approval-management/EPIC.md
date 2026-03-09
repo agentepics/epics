@@ -1,5 +1,5 @@
 ---
-spec_version: 0.5.1
+spec_version: 0.5.2
 id: approval-management
 tags: [approval, governance, policy, autonomy]
 timezone: UTC

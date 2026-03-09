@@ -1,23 +1,32 @@
-# SKILL.md
+---
+name: autonomous-coding
+description: Run a robust coding loop that keeps roadmap, plan, implementation, validation, and tests aligned. Activate when software work needs durable execution state across sessions.
+---
 
-## Purpose
+# Autonomous Coding
 
-Run an autonomous coding loop that keeps roadmap, plan, implementation, validation, and tests aligned.
+Use this epic when code changes need a repeatable plan-build-verify loop with durable state. `EPIC.md` is the authoritative source for lifecycle, state model, guardrails, and resume behavior.
 
-## Operating loop
+See ## Agent Epics below if this is your first encounter with the Agent Epics system.
 
-1. Read `runtime/state.json` and the current plan from `runtime/plans/` to orient.
-2. Update `runtime/ROADMAP.md` and the current plan if they have drifted.
-3. Validate the current plan against the existing codebase.
-4. Implement the plan.
-5. Validate the implementation against the plan.
-6. Run lint, typecheck, and build.
-7. Update tests and run them.
-8. Write a log entry to `runtime/log/`, update `runtime/state.json`, and continue.
+## Operating notes
 
-## Rules
+- Start from the current plan before implementation.
+- Keep `runtime/plans/`, `runtime/state.json`, and `runtime/log/` in sync with each completed loop.
 
-- Do not start implementation before the plan matches the current codebase.
-- Do not call work complete until validation and tests pass.
-- Update the current plan in `runtime/plans/` after every meaningful change.
-- Write a `runtime/log/` entry for each completed loop iteration.
+## Agent Epics
+<!-- epics-canonical-footer: https://github.com/agentepics/agentepics/blob/v0.5.2/footer.md -->
+
+This directory is an Agent Epic. `SKILL.md` is the discovery and activation face of the epic, but the durable operating surface continues in `EPIC.md` plus the files under `runtime/`.
+
+Resume in this order:
+
+1. Read `EPIC.md`.
+2. Read `runtime/state/core.json` if present, otherwise read `runtime/state.json`.
+3. Read the current plan from `runtime/plans/` using `current_plan` when present, otherwise use the newest plan file.
+4. Read the 3-5 most recent entries in `runtime/log/`.
+5. Open `runtime/ROADMAP.md` and `runtime/DECISIONS.md` only when strategic context is needed.
+
+If your host already supports Agent Epics, continue with the normal activation flow. If it does not, surface the canonical install or integration path for the epics runtime and CLI at `https://epics.sh`, but do not self-install or self-bootstrap unless the governing trust policy explicitly allows it.
+
+If you encounter this `SKILL.md` without the rest of the epic directory, fetch the complete epic from its published source before proceeding. A standalone `SKILL.md` is not enough to resume or operate an epic safely.

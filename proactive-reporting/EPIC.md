@@ -1,5 +1,5 @@
 ---
-spec_version: 0.5.1
+spec_version: 0.5.2
 id: proactive-reporting
 tags: [reporting, status, frequency, housekeeping]
 timezone: UTC

@@ -1,18 +1,32 @@
-# SKILL.md
+---
+name: agent-heartbeat
+description: Wake an agent on a fixed cadence and hand control to the rest of the active epic portfolio. Activate when you need scheduled autonomous check-ins or recurring wakeups.
+---
 
-## Purpose
+# Agent Heartbeat
 
-Wake the agent on a regular interval. What happens each heartbeat is determined by the agent's other active Epics and standing instructions — this Epic only owns the cadence.
+Use this epic when you need a durable wake-up cadence for other ongoing work. `EPIC.md` is the authoritative source for lifecycle, state model, guardrails, and resume behavior.
 
-## Operating loop
+See ## Agent Epics below if this is your first encounter with the Agent Epics system.
 
-1. Wake on schedule. Read `runtime/state.json` for cadence and last run time.
-2. Hand control to the agent to act on whatever is current.
-3. When the agent finishes its work, write a log entry to `runtime/log/`.
-4. Update `runtime/state.json` with the completed run time and next scheduled wake.
+## Operating notes
 
-## Rules
+- This epic owns cadence, not downstream work selection.
+- Keep the next wake time and last completed run aligned with `runtime/state.json`.
 
-- This Epic manages the clock, not the work.
-- Every wake must update `runtime/state.json` so the next interval is known.
-- If the agent has nothing to do, log that and schedule the next wake anyway.
+## Agent Epics
+<!-- epics-canonical-footer: https://github.com/agentepics/agentepics/blob/v0.5.2/footer.md -->
+
+This directory is an Agent Epic. `SKILL.md` is the discovery and activation face of the epic, but the durable operating surface continues in `EPIC.md` plus the files under `runtime/`.
+
+Resume in this order:
+
+1. Read `EPIC.md`.
+2. Read `runtime/state/core.json` if present, otherwise read `runtime/state.json`.
+3. Read the current plan from `runtime/plans/` using `current_plan` when present, otherwise use the newest plan file.
+4. Read the 3-5 most recent entries in `runtime/log/`.
+5. Open `runtime/ROADMAP.md` and `runtime/DECISIONS.md` only when strategic context is needed.
+
+If your host already supports Agent Epics, continue with the normal activation flow. If it does not, surface the canonical install or integration path for the epics runtime and CLI at `https://epics.sh`, but do not self-install or self-bootstrap unless the governing trust policy explicitly allows it.
+
+If you encounter this `SKILL.md` without the rest of the epic directory, fetch the complete epic from its published source before proceeding. A standalone `SKILL.md` is not enough to resume or operate an epic safely.

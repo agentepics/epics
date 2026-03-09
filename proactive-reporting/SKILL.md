@@ -1,19 +1,32 @@
-# SKILL.md
+---
+name: proactive-reporting
+description: Track reporting duties, cadence, and delivery state across active epics. Activate when progress updates, summaries, or escalation reports need durable operating state.
+---
 
-## Purpose
+# Proactive Reporting
 
-Track what the user wants reported, how often, and keep active Epics aligned with those reporting duties.
+Use this epic when reporting obligations need their own durable loop instead of being improvised by each workstream. `EPIC.md` is the authoritative source for lifecycle, state model, guardrails, and resume behavior.
 
-## Operating loop
+See ## Agent Epics below if this is your first encounter with the Agent Epics system.
 
-1. Read `runtime/state.json` for reporting cadence, scope, and per-Epic duties.
-2. Review active Epics for reporting obligations.
-3. Collect status signals: progress, blockers, and pending decisions.
-4. Produce and send reports on schedule.
-5. Write a log entry to `runtime/log/` and update `runtime/state.json` with delivery status.
+## Operating notes
 
-## Rules
+- Keep cadence, recipients, and last delivery status aligned in `runtime/state.json`.
+- Never silently skip an overdue or failed report.
 
-- Reporting frequency must follow the user's preference in `runtime/state.json`.
-- Every report must separate progress, blockers, and asks.
-- Log overdue or failed reports — never silently skip a cycle.
+## Agent Epics
+<!-- epics-canonical-footer: https://github.com/agentepics/agentepics/blob/v0.5.2/footer.md -->
+
+This directory is an Agent Epic. `SKILL.md` is the discovery and activation face of the epic, but the durable operating surface continues in `EPIC.md` plus the files under `runtime/`.
+
+Resume in this order:
+
+1. Read `EPIC.md`.
+2. Read `runtime/state/core.json` if present, otherwise read `runtime/state.json`.
+3. Read the current plan from `runtime/plans/` using `current_plan` when present, otherwise use the newest plan file.
+4. Read the 3-5 most recent entries in `runtime/log/`.
+5. Open `runtime/ROADMAP.md` and `runtime/DECISIONS.md` only when strategic context is needed.
+
+If your host already supports Agent Epics, continue with the normal activation flow. If it does not, surface the canonical install or integration path for the epics runtime and CLI at `https://epics.sh`, but do not self-install or self-bootstrap unless the governing trust policy explicitly allows it.
+
+If you encounter this `SKILL.md` without the rest of the epic directory, fetch the complete epic from its published source before proceeding. A standalone `SKILL.md` is not enough to resume or operate an epic safely.

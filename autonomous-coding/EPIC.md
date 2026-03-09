@@ -1,5 +1,5 @@
 ---
-spec_version: 0.5.1
+spec_version: 0.5.2
 id: autonomous-coding
 tags: [coding, roadmap, plan, validation]
 timezone: UTC

@@ -2,7 +2,7 @@
 
 Public curated Epic source repositories authored by the [Agent Epics](https://agentepics.io) project.
 
-Each directory is a complete Epic following the [EPIC specification v0.5.0](https://agentepics.io/epic-specification), containing `SKILL.md`, `EPIC.md`, structured state, plans, and log directories.
+Each directory is a complete Epic following the [EPIC specification v0.5.2](https://agentepics.io/epic-specification), containing a dual-purpose `SKILL.md`, `EPIC.md`, and durable runtime state under `runtime/`.
 
 ## Epics
 
@@ -21,12 +21,14 @@ Each epic follows the standard layout:
 
 ```
 epic-name/
-├── SKILL.md              # Routing and instructions
+├── SKILL.md              # Skill surface plus Agent Epics footer
 ├── EPIC.md               # Workflow definition with YAML frontmatter
-├── state.json            # Structured state
-├── plans/
-│   └── 001-initial.md    # Initial tactical plan
-└── log/                  # Append-only activity history
+├── runtime/
+│   ├── state.json        # Structured state
+│   ├── plans/
+│   │   └── 001-initial.md # Initial tactical plan
+│   └── log/              # Append-only activity history
+└── policy.yml
 ```
 
 ## License

@@ -1,19 +1,32 @@
-# SKILL.md
+---
+name: approval-management
+description: Track approval boundaries for autonomous work and keep active epics aligned with those rules. Activate when automation needs durable ask-first, allowed, and blocked states.
+---
 
-## Purpose
+# Approval Management
 
-Track what requires approval before autonomous work starts and keep all active Epics aligned with that policy.
+Use this epic when autonomous execution needs a durable approval policy instead of ad hoc decisions. `EPIC.md` is the authoritative source for lifecycle, state model, guardrails, and resume behavior.
 
-## Operating loop
+See ## Agent Epics below if this is your first encounter with the Agent Epics system.
 
-1. Read `runtime/state.json` for the current approval policy and exception list.
-2. Review active Epics against the policy.
-3. Route work into automatic, ask-first, or blocked states.
-4. When approval is needed, ask and record the decision in `runtime/log/`.
-5. Update `runtime/state.json` with approval outcomes and any policy changes.
+## Operating notes
 
-## Rules
+- Record approvals and exceptions in `runtime/state.json` and `runtime/log/`.
+- Pause or escalate work as soon as it crosses a recorded boundary.
 
-- Approval policy must be explicit in `runtime/state.json` before autonomous work proceeds.
-- Any Epic that crosses an approval boundary must pause or ask.
-- Policy changes must propagate across all active Epics immediately.
+## Agent Epics
+<!-- epics-canonical-footer: https://github.com/agentepics/agentepics/blob/v0.5.2/footer.md -->
+
+This directory is an Agent Epic. `SKILL.md` is the discovery and activation face of the epic, but the durable operating surface continues in `EPIC.md` plus the files under `runtime/`.
+
+Resume in this order:
+
+1. Read `EPIC.md`.
+2. Read `runtime/state/core.json` if present, otherwise read `runtime/state.json`.
+3. Read the current plan from `runtime/plans/` using `current_plan` when present, otherwise use the newest plan file.
+4. Read the 3-5 most recent entries in `runtime/log/`.
+5. Open `runtime/ROADMAP.md` and `runtime/DECISIONS.md` only when strategic context is needed.
+
+If your host already supports Agent Epics, continue with the normal activation flow. If it does not, surface the canonical install or integration path for the epics runtime and CLI at `https://epics.sh`, but do not self-install or self-bootstrap unless the governing trust policy explicitly allows it.
+
+If you encounter this `SKILL.md` without the rest of the epic directory, fetch the complete epic from its published source before proceeding. A standalone `SKILL.md` is not enough to resume or operate an epic safely.
