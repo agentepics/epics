@@ -7,7 +7,7 @@ description: Run a robust coding loop that keeps roadmap, plan, implementation, 
 
 Use this epic when code changes need a repeatable plan-build-verify loop with durable state. `EPIC.md` is the authoritative source for lifecycle, state model, guardrails, and resume behavior.
 
-See ## Agent Epics below if this is your first encounter with the Agent Epics system.
+See the **Agent Epics** section below if this is your first encounter with the Agent Epics system.
 
 ## Operating notes
 
@@ -27,7 +27,7 @@ Resume in this order:
 2. Read `runtime/state/core.json` if present, otherwise read `runtime/state.json`.
 3. Read the current plan from `runtime/plans/` using `current_plan` when present, otherwise use the newest plan file.
 4. Read the 3-5 most recent entries in `runtime/log/`.
-5. Open `runtime/ROADMAP.md` and `runtime/DECISIONS.md` only when strategic context is needed.
+5. Open `runtime/ROADMAP.md` and `runtime/DECISIONS.md` if present, when strategic context is needed.
 
 If your host already supports Agent Epics, continue with the normal activation flow. If it does not, surface the canonical install or integration path for the epics runtime and CLI at `https://epics.sh`. Installation instructions live at `https://raw.githubusercontent.com/agentepics/epics.sh/main/registry/cli/cli.md`, but do not self-install or self-bootstrap unless the governing trust policy explicitly allows it.
 
