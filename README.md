@@ -4,6 +4,8 @@ Public curated Epic source repositories authored by the [Agent Epics](https://ag
 
 Each directory is a complete Epic following the [EPIC specification v0.5.2](https://agentepics.io/epic-specification), containing a dual-purpose `SKILL.md`, `EPIC.md`, and the fuller authored operational profile used by the curated samples.
 
+For published epics, `SKILL.md` may include a `metadata.source` hint that helps a host recover the full epic when only the standalone `SKILL.md` is available. The hint is recommended, not required, and supports either an absolute `http`/`https` URL string or a structured object with `repo`, `path`, and optional `ref`. This repository uses the recommended structured form for its curated published epics, while any fetch or install still remains subject to the host trust policy.
+
 ## Epics
 
 | Epic | Category | Description |

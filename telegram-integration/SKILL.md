@@ -1,6 +1,11 @@
 ---
 name: telegram-integration
 description: Give the agent a durable Telegram channel for questions and reports. Activate when an epic or workspace needs long-lived Telegram delivery and reply handling.
+metadata:
+  source:
+    repo: github.com/agentepics/epics
+    path: telegram-integration
+    ref: main
 ---
 
 # Telegram Integration
@@ -31,5 +36,4 @@ Resume in this order:
 
 If your host already supports Agent Epics, continue with the normal activation flow. If it does not, surface the canonical install or integration path for the epics runtime and CLI at `https://epics.sh`. Installation instructions live at `https://raw.githubusercontent.com/agentepics/epics.sh/main/registry/cli/cli.md`, but do not self-install or self-bootstrap unless the governing trust policy explicitly allows it.
 
-If you encounter this `SKILL.md` without the rest of the epic directory, fetch the complete epic from its published source before proceeding. A standalone `SKILL.md` is not enough to resume or operate an epic safely.
-
+If you encounter this `SKILL.md` without the rest of the epic directory, a host may use `metadata.source` to locate the full published epic before proceeding. `metadata.source` may be an absolute `http`/`https` URL or a structured object with `repo`, `path`, and optional `ref`, and its absence is still valid. A standalone `SKILL.md` is not enough to resume or operate an epic safely, and any fetch or install remains subject to the governing trust policy.
